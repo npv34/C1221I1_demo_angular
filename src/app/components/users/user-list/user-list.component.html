@@ -1,0 +1,32 @@
+<div class="card">
+  <h5 class="card-header">Danh sach nguoi dung</h5>
+  <div class="card-body">
+    <button (click)="showImage()" class="btn btn-success">Hidden Image</button>
+    <input type="text" (keyup)="search($event)">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col" [hidden]="isHideImage">Avatar</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; index as i">
+        <th scope="row">{{ i + 1}}</th>
+        <td>{{ user.name}}</td>
+        <td [hidden]="isHideImage"><img [src]="user.avatar" [width]="100" alt=""></td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address}}</td>
+        <td>{{ user.phone}}</td>
+        <td>
+          <button (click)="delete(i)" class="btn btn-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

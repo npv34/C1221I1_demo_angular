@@ -2,7 +2,8 @@
   <h5 class="card-header">Danh sach nguoi dung</h5>
   <div class="card-body">
     <button (click)="showImage()" class="btn btn-success">Hidden Image</button>
-    <input type="text" (keyup)="search($event)">
+    <app-input-search (keyword)="search($event)"></app-input-search>
+    <app-message [message]="txt"></app-message>
     <table class="table">
       <thead>
       <tr>
@@ -24,7 +25,8 @@
         <td>{{ user.address}}</td>
         <td>{{ user.phone}}</td>
         <td>
-          <button (click)="delete(i)" class="btn btn-danger">Delete</button></td>
+          <button (click)="delete(i)" class="btn btn-danger">Delete</button>
+        </td>
       </tr>
       </tbody>
     </table>

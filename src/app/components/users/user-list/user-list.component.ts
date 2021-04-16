@@ -9,6 +9,7 @@ import {IUser} from "../IUser";
 export class UserListComponent implements OnInit {
 
   isHideImage = false;
+  txt: string = ''
   users: IUser[] = [
     {
       name: 'Thanh',
@@ -35,6 +36,7 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   showImage(): void {
@@ -44,12 +46,14 @@ export class UserListComponent implements OnInit {
   delete(index: number): void {
     if (confirm('Are you sure?')) {
       // thuc hien xoa
-
+      this.users.splice(index, 1);
+      this.txt = 'Delete success!'
     }
   }
 
   search(event: any) {
-    let keyword = event.target.value;
+    let keyword = event;
+    console.log(keyword)
   }
 
 }

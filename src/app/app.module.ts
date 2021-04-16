@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { NavbavComponent } from './components/core/navbav/navbav.component';
 import {FormsModule} from "@angular/forms";
+import { InputSearchComponent } from './components/input-search/input-search.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    NavbavComponent
+    NavbavComponent,
+    InputSearchComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

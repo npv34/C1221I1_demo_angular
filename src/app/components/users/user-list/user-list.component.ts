@@ -56,4 +56,8 @@ export class UserListComponent implements OnInit {
     console.log(keyword)
   }
 
+  addUser(data: any) {
+      this.users.push(data);
+  }
+
 }

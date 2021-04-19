@@ -8,6 +8,7 @@ import {IUser} from "../IUser";
 })
 export class UserListComponent implements OnInit {
 
+  data: any;
   isHideImage = false;
   txt: string = ''
   users: IUser[] = [
@@ -58,6 +59,10 @@ export class UserListComponent implements OnInit {
 
   addUser(data: any) {
       this.users.push(data);
+  }
+
+  edit(index: number) {
+    this.data = this.users[index];
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -6,13 +6,15 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: './user-add.component.html',
   styleUrls: ['./user-add.component.css']
 })
-export class UserAddComponent implements OnInit {
+export class UserAddComponent implements OnInit, OnChanges {
 
   @Output() data = new EventEmitter<any>()
+  @Input() userEdit :any;
   addUserForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
   }
+
 
   ngOnInit(): void {
     this.addUserForm = this.fb.group({
@@ -42,6 +44,11 @@ export class UserAddComponent implements OnInit {
 
   get phone() {
     return this.addUserForm.get('phone')
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    let data = changes.userEdit.currentValue;
+    this.addUserForm.patchValue(data)
   }
 
 }
